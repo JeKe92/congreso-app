@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 
 export type TronCardAccent = 'cyan' | 'orange' | 'purple' | 'green' | 'none';
 
 @Component({
     selector: 'app-tron-card',
-    imports: [CommonModule],
+    imports: [],
     templateUrl: './tron-card.component.html',
     styleUrl: './tron-card.component.scss'
 })

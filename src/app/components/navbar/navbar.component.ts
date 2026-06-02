@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 
 interface NavLink {
   label: string;
@@ -9,7 +9,7 @@ interface NavLink {
 
 @Component({
     selector: 'app-navbar',
-    imports: [RouterLink, RouterLinkActive, CommonModule],
+    imports: [RouterLink, RouterLinkActive],
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.scss'
 })

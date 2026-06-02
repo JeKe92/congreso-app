@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 
 @Component({
     selector: 'app-placeholder',
-    imports: [CommonModule, TronButtonComponent],
+    imports: [TronButtonComponent],
     template: `
     <section class="placeholder grid-bg">
       <div class="container placeholder__content">

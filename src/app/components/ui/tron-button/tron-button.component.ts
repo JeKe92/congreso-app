@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { RouterLink } from '@angular/router';
 
 export type TronButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
@@ -7,7 +7,7 @@ export type TronButtonSize = 'sm' | 'md' | 'lg';
 
 @Component({
     selector: 'app-tron-button',
-    imports: [CommonModule, RouterLink],
+    imports: [RouterLink],
     templateUrl: './tron-button.component.html',
     styleUrl: './tron-button.component.scss'
 })
