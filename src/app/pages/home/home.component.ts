@@ -25,11 +25,10 @@ interface Stat {
 }
 
 @Component({
-  selector: 'app-home',
-  standalone: true,
-  imports: [CommonModule, RouterLink, TronButtonComponent, TronCardComponent],
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
+    selector: 'app-home',
+    imports: [CommonModule, RouterLink, TronButtonComponent, TronCardComponent],
+    templateUrl: './home.component.html',
+    styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   countdown = { days: 47, hours: 12, minutes: 38, seconds: 5 };

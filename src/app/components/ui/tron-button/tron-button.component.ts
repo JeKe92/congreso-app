@@ -6,11 +6,10 @@ export type TronButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 export type TronButtonSize = 'sm' | 'md' | 'lg';
 
 @Component({
-  selector: 'app-tron-button',
-  standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './tron-button.component.html',
-  styleUrl: './tron-button.component.scss',
+    selector: 'app-tron-button',
+    imports: [CommonModule, RouterLink],
+    templateUrl: './tron-button.component.html',
+    styleUrl: './tron-button.component.scss'
 })
 export class TronButtonComponent {
   @Input() variant: TronButtonVariant = 'primary';

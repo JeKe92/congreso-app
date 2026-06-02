@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 
 @Component({
-  selector: 'app-placeholder',
-  standalone: true,
-  imports: [CommonModule, TronButtonComponent],
-  template: `
+    selector: 'app-placeholder',
+    imports: [CommonModule, TronButtonComponent],
+    template: `
     <section class="placeholder grid-bg">
       <div class="container placeholder__content">
         <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// EN CONSTRUCCIÓN</span>
@@ -20,7 +19,7 @@ import { TronButtonComponent } from '../../components/ui/tron-button/tron-button
       </div>
     </section>
   `,
-  styles: [`
+    styles: [`
     .placeholder {
       min-height: calc(100vh - 64px);
       display: flex;
@@ -34,7 +33,7 @@ import { TronButtonComponent } from '../../components/ui/tron-button/tron-button
       &__sub { font-size: 1rem; letter-spacing: 0.1em; }
       &__desc { color: var(--text-secondary); }
     }
-  `],
+  `]
 })
 export class PlaceholderComponent {
   data: Record<string, string> = {};
