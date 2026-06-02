@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx @angular/cli@latest --version)",
+      "Bash(npx @angular/cli@latest version)",
+      "Bash(ng version *)"
+    ]
+  }
+}

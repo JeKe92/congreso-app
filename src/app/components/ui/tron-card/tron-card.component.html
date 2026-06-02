@@ -1,0 +1,9 @@
+<div
+  class="tron-card"
+  [class]="'tron-card--accent-' + accent + ' tron-card--pad-' + padding"
+  [class.tron-card--hoverable]="hoverable"
+>
+  <ng-content select="[card-header]" />
+  <ng-content />
+  <ng-content select="[card-footer]" />
+</div>

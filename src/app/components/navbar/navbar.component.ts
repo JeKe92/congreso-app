@@ -1,0 +1,35 @@
+import { Component, signal } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+interface NavLink {
+  label: string;
+  path: string;
+}
+
+@Component({
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [RouterLink, RouterLinkActive, CommonModule],
+  templateUrl: './navbar.component.html',
+  styleUrl: './navbar.component.scss',
+})
+export class NavbarComponent {
+  menuOpen = signal(false);
+
+  links: NavLink[] = [
+    { label: 'Inicio',     path: '/' },
+    { label: 'Programa',   path: '/programa' },
+    { label: 'Ponentes',   path: '/ponentes' },
+    { label: 'Sede',       path: '/sede' },
+    { label: 'Registro',   path: '/registro' },
+  ];
+
+  toggleMenu() {
+    this.menuOpen.update(v => !v);
+  }
+
+  closeMenu() {
+    this.menuOpen.set(false);
+  }
+}

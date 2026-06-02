@@ -1,0 +1,63 @@
+<nav class="navbar">
+  <div class="navbar__inner container">
+
+    <!-- Logo -->
+    <a routerLink="/" class="navbar__logo" (click)="closeMenu()">
+      <span class="navbar__logo-bracket">[</span>
+      <span class="navbar__logo-text">CONGRESO</span>
+      <span class="navbar__logo-bracket">]</span>
+      <span class="navbar__logo-version text-mono text-muted">v2026</span>
+    </a>
+
+    <!-- Desktop links -->
+    <ul class="navbar__links">
+      @for (link of links; track link.path) {
+        <li>
+          <a
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+            class="navbar__link"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- CTA -->
+    <a routerLink="/registro" class="navbar__cta">
+      <span class="navbar__cta-icon">&#9654;</span>
+      REGISTRARSE
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar__toggle" (click)="toggleMenu()" [attr.aria-expanded]="menuOpen()">
+      <span class="navbar__toggle-bar" [class.open]="menuOpen()"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (menuOpen()) {
+    <div class="navbar__mobile">
+      <ul class="navbar__mobile-links">
+        @for (link of links; track link.path) {
+          <li>
+            <a
+              [routerLink]="link.path"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+              class="navbar__mobile-link"
+              (click)="closeMenu()"
+            >
+              <span class="text-muted text-mono">// </span>{{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</nav>
+
+<!-- Spacer for fixed navbar -->
+<div class="navbar__spacer"></div>

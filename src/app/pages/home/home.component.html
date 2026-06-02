@@ -1,0 +1,176 @@
+<!-- ══════════════════════════════════════════════════════════════════
+  HERO
+══════════════════════════════════════════════════════════════════ -->
+<section class="hero grid-bg">
+  <div class="hero__glow-top"></div>
+
+  <div class="container hero__content">
+    <div class="hero__eyebrow">
+      <span class="badge">
+        <span class="badge__dot"></span>
+        BOGOTÁ · 15–17 SEP 2026
+      </span>
+    </div>
+
+    <h1 class="hero__title animate-slide-up">
+      <span class="hero__title-line">CONGRESO</span>
+      <span class="hero__title-accent">TECNOLÓGICO</span>
+      <span class="hero__title-sub">NACIONAL</span>
+    </h1>
+
+    <p class="hero__desc animate-slide-up">
+      La cumbre de tecnología más importante del país. Tres días para
+      conectar, aprender y construir el futuro digital con los mejores
+      líderes de la industria global.
+    </p>
+
+    <div class="hero__actions">
+      <app-tron-button size="lg" routerLink="/registro">
+        &#9654;&nbsp; OBTENER ENTRADA
+      </app-tron-button>
+      <app-tron-button size="lg" variant="secondary" routerLink="/programa">
+        VER PROGRAMA
+      </app-tron-button>
+    </div>
+
+    <!-- Countdown -->
+    <div class="hero__countdown">
+      <span class="hero__countdown-label text-mono text-muted">// tiempo restante</span>
+      <div class="hero__countdown-grid">
+        @for (item of [
+          { v: countdown.days,    l: 'DÍAS' },
+          { v: countdown.hours,   l: 'HORAS' },
+          { v: countdown.minutes, l: 'MIN' },
+          { v: countdown.seconds, l: 'SEG' }
+        ]; track item.l) {
+          <div class="hero__countdown-unit">
+            <span class="hero__countdown-value">{{ item.v | number:'2.0-0' }}</span>
+            <span class="hero__countdown-unit-label">{{ item.l }}</span>
+          </div>
+          @if (!$last) {
+            <span class="hero__countdown-sep animate-pulse-glow">:</span>
+          }
+        }
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__scroll-hint">
+    <span class="text-mono text-muted" style="font-size:0.65rem;letter-spacing:0.15em">SCROLL</span>
+    <div class="hero__scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+  STATS BAR
+══════════════════════════════════════════════════════════════════ -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid">
+      @for (stat of stats; track stat.label) {
+        <div class="stats-bar__item">
+          <span class="stats-bar__value">{{ stat.value }}</span>
+          <span class="stats-bar__label">{{ stat.label }}</span>
+        </div>
+        @if (!$last) {
+          <div class="stats-bar__divider"></div>
+        }
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+  TRACKS
+══════════════════════════════════════════════════════════════════ -->
+<section class="section tracks">
+  <div class="container">
+    <div class="section-header">
+      <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// PROGRAMA</span>
+      <h2 class="mt-sm">TRACKS TEMÁTICOS</h2>
+      <p class="section-header__desc">Cuatro ejes de conocimiento que definen la industria.</p>
+    </div>
+
+    <div class="tracks__grid">
+      @for (track of tracks; track track.code) {
+        <app-tron-card [accent]="track.accent" padding="lg" class="track-card">
+          <div class="track-card__inner">
+            <div class="track-card__top">
+              <span class="text-mono text-muted" style="font-size:0.7rem">{{ track.code }}</span>
+              <span class="badge" [class.badge--orange]="track.accent === 'orange'">
+                {{ track.sessions }} sesiones
+              </span>
+            </div>
+            <h3 class="track-card__title">{{ track.title }}</h3>
+            <p class="track-card__desc">{{ track.description }}</p>
+            <a routerLink="/programa" class="track-card__cta text-mono">
+              VER SESIONES &#8594;
+            </a>
+          </div>
+        </app-tron-card>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+  SPEAKERS
+══════════════════════════════════════════════════════════════════ -->
+<section class="section speakers">
+  <div class="container">
+    <div class="section-header">
+      <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// PONENTES</span>
+      <h2 class="mt-sm">SPEAKERS CONFIRMADOS</h2>
+      <p class="section-header__desc">Mentes que están redefiniendo la tecnología.</p>
+    </div>
+
+    <div class="speakers__grid">
+      @for (speaker of speakers; track speaker.code) {
+        <app-tron-card accent="cyan" padding="md" class="speaker-card">
+          <div class="speaker-card__inner">
+            <div class="speaker-card__avatar">
+              <span>{{ speaker.code }}</span>
+            </div>
+            <div class="speaker-card__info">
+              <h4 class="speaker-card__name">{{ speaker.name }}</h4>
+              <p class="speaker-card__role text-mono">{{ speaker.role }}</p>
+              <p class="speaker-card__topic">{{ speaker.topic }}</p>
+            </div>
+          </div>
+        </app-tron-card>
+      }
+    </div>
+
+    <div class="speakers__cta flex-center mt-xl">
+      <app-tron-button variant="secondary" size="lg" routerLink="/ponentes">
+        VER TODOS LOS PONENTES
+      </app-tron-button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+  CTA BANNER
+══════════════════════════════════════════════════════════════════ -->
+<section class="cta-banner grid-bg">
+  <div class="cta-banner__glow"></div>
+  <div class="container cta-banner__content">
+    <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// REGISTRO ABIERTO</span>
+    <h2 class="cta-banner__title mt-sm">
+      ¿LISTO PARA<br>
+      <span class="text-cyan">CONECTARTE AL GRID?</span>
+    </h2>
+    <p class="cta-banner__desc">
+      Las entradas Early Bird están disponibles por tiempo limitado.<br>
+      Asegura tu lugar antes del 31 de julio de 2026.
+    </p>
+    <div class="cta-banner__actions">
+      <app-tron-button size="lg" routerLink="/registro">
+        &#9654;&nbsp; REGISTRARME AHORA
+      </app-tron-button>
+      <span class="cta-banner__note text-mono text-muted">
+        Desde $199.000 COP
+      </span>
+    </div>
+  </div>
+</section>

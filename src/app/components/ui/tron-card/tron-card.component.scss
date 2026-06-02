@@ -1,0 +1,77 @@
+:host { display: block; }
+
+.tron-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-dim);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+
+  // Corner accent marks
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-color: var(--accent-color, var(--cyan));
+    border-style: solid;
+    border-width: 0;
+    opacity: 0.5;
+    transition: opacity var(--transition-normal);
+  }
+  &::before {
+    top: 6px; left: 6px;
+    border-top-width: 1.5px;
+    border-left-width: 1.5px;
+  }
+  &::after {
+    bottom: 6px; right: 6px;
+    border-bottom-width: 1.5px;
+    border-right-width: 1.5px;
+  }
+
+  // ── Padding
+  &--pad-sm { padding: var(--space-md); }
+  &--pad-md { padding: var(--space-lg); }
+  &--pad-lg { padding: var(--space-xl); }
+
+  // ── Hover
+  &--hoverable:hover {
+    border-color: var(--accent-color, var(--border-mid));
+    box-shadow: 0 0 20px var(--accent-glow, var(--cyan-glow)), 0 8px 32px rgba(0,0,0,0.4);
+    transform: translateY(-2px);
+
+    &::before,
+    &::after { opacity: 1; }
+  }
+
+  // ── Accent variants
+  &--accent-cyan {
+    --accent-color: var(--cyan);
+    --accent-glow:  var(--cyan-glow);
+    border-top: 1px solid rgba(0,212,255,0.2);
+  }
+  &--accent-orange {
+    --accent-color: var(--orange);
+    --accent-glow:  var(--orange-glow);
+    border-top: 1px solid rgba(255,107,53,0.2);
+  }
+  &--accent-purple {
+    --accent-color: var(--purple);
+    --accent-glow:  rgba(123,47,255,0.25);
+    border-top: 1px solid rgba(123,47,255,0.2);
+  }
+  &--accent-green {
+    --accent-color: var(--green);
+    --accent-glow:  rgba(0,255,136,0.2);
+    border-top: 1px solid rgba(0,255,136,0.2);
+  }
+  &--accent-none {
+    &::before, &::after { display: none; }
+  }
+}

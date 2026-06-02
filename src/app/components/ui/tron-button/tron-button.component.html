@@ -1,0 +1,27 @@
+@if (routerLink) {
+  <a
+    [routerLink]="routerLink"
+    class="tron-btn"
+    [class]="'tron-btn--' + variant + ' tron-btn--' + size"
+    [class.tron-btn--full]="fullWidth"
+    [class.tron-btn--disabled]="disabled"
+  >
+    @if (loading) {
+      <span class="tron-btn__spinner"></span>
+    }
+    <ng-content />
+  </a>
+} @else {
+  <button
+    [type]="type"
+    class="tron-btn"
+    [class]="'tron-btn--' + variant + ' tron-btn--' + size"
+    [class.tron-btn--full]="fullWidth"
+    [disabled]="disabled || loading"
+  >
+    @if (loading) {
+      <span class="tron-btn__spinner"></span>
+    }
+    <ng-content />
+  </button>
+}

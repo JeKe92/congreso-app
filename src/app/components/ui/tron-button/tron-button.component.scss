@@ -1,0 +1,122 @@
+:host {
+  display: inline-block;
+  &.tron-btn--full { display: block; width: 100%; }
+}
+
+.tron-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast),
+    transform var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+
+  // ── Sizes
+  &--sm  { font-size: 0.65rem; padding: 6px 14px; }
+  &--md  { font-size: 0.72rem; padding: 10px 22px; }
+  &--lg  { font-size: 0.82rem; padding: 14px 32px; }
+
+  &--full { width: 100%; }
+
+  // ── Variants
+
+  &--primary {
+    background: var(--cyan);
+    color: var(--bg-base);
+    border: 1px solid var(--cyan);
+
+    &:hover:not(:disabled):not(.tron-btn--disabled) {
+      background: var(--cyan-bright);
+      border-color: var(--cyan-bright);
+      box-shadow: var(--glow-md);
+      transform: translateY(-1px);
+    }
+
+    &:active:not(:disabled) {
+      transform: translateY(0);
+      box-shadow: var(--glow-sm);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: var(--cyan);
+    border: 1px solid var(--border-bright);
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--cyan-glow);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+
+    &:hover:not(:disabled):not(.tron-btn--disabled) {
+      border-color: var(--cyan);
+      box-shadow: var(--glow-sm), inset 0 0 12px rgba(0,212,255,0.08);
+      transform: translateY(-1px);
+
+      &::before { opacity: 1; }
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-dim);
+
+    &:hover:not(:disabled):not(.tron-btn--disabled) {
+      color: var(--cyan);
+      border-color: var(--border-mid);
+      background: rgba(0,212,255,0.05);
+    }
+  }
+
+  &--danger {
+    background: transparent;
+    color: var(--orange);
+    border: 1px solid rgba(255, 107, 53, 0.4);
+
+    &:hover:not(:disabled):not(.tron-btn--disabled) {
+      background: rgba(255,107,53,0.1);
+      border-color: var(--orange);
+      box-shadow: 0 0 16px var(--orange-glow);
+    }
+  }
+
+  // ── States
+  &:disabled,
+  &--disabled {
+    opacity: 0.38;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+    pointer-events: none;
+  }
+
+  // ── Spinner
+  &__spinner {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border: 2px solid currentColor;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: rotate-slow 0.7s linear infinite;
+  }
+}

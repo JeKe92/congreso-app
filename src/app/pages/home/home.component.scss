@@ -1,0 +1,363 @@
+// ── Hero
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: var(--space-3xl);
+  position: relative;
+  overflow: hidden;
+
+  &__glow-top {
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(ellipse at center, rgba(0,212,255,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    max-width: 800px;
+  }
+
+  &__eyebrow {
+    .badge__dot {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--cyan);
+      animation: pulse-glow 1.5s ease-in-out infinite;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+    gap: 4px;
+  }
+
+  &__title-line {
+    color: var(--text-primary);
+  }
+
+  &__title-accent {
+    color: var(--cyan);
+    text-shadow: 0 0 30px rgba(0,212,255,0.5), 0 0 60px rgba(0,212,255,0.2);
+    animation: flicker 8s linear infinite;
+  }
+
+  &__title-sub {
+    color: var(--text-secondary);
+    font-size: 0.6em;
+    letter-spacing: 0.3em;
+  }
+
+  &__desc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  &__actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  &__countdown {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
+  &__countdown-grid {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  &__countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__countdown-value {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+    min-width: 2ch;
+    text-align: center;
+  }
+
+  &__countdown-unit-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+  }
+
+  &__countdown-sep {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--cyan);
+    line-height: 1;
+    margin-bottom: 18px;
+  }
+
+  &__scroll-hint {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__scroll-line {
+    width: 1px;
+    height: 48px;
+    background: linear-gradient(to bottom, var(--border-mid), transparent);
+    animation: scan-line 2s ease-in-out infinite;
+  }
+}
+
+// ── Stats bar
+.stats-bar {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+  padding-block: var(--space-xl);
+
+  &__grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  &__value {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--cyan);
+    text-shadow: var(--glow-text);
+  }
+
+  &__label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  &__divider {
+    width: 1px;
+    height: 48px;
+    background: var(--border-dim);
+
+    @media (max-width: 560px) { display: none; }
+  }
+}
+
+// ── Section header
+.section-header {
+  margin-bottom: var(--space-2xl);
+
+  h2 { color: var(--text-primary); }
+
+  &__desc {
+    margin-top: var(--space-md);
+    font-size: 1rem;
+    max-width: 520px;
+  }
+}
+
+// ── Tracks
+.tracks {
+  background: var(--bg-base);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+}
+
+.track-card {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    height: 100%;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    flex: 1;
+  }
+
+  &__cta {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--cyan);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-top: auto;
+    transition: gap var(--transition-fast);
+
+    &:hover {
+      gap: 8px;
+      text-shadow: none;
+    }
+  }
+}
+
+// ── Speakers
+.speakers {
+  background: var(--bg-elevated);
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-lg);
+  }
+}
+
+.speaker-card {
+  &__inner {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+  }
+
+  &__avatar {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-mid);
+    background: var(--bg-overlay);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--cyan);
+    text-shadow: var(--glow-text);
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__name {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+
+  &__role {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  &__topic {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    margin-top: 4px;
+  }
+}
+
+// ── CTA banner
+.cta-banner {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-base);
+  padding-block: var(--space-3xl);
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 100%, rgba(0,212,255,0.1) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-lg);
+  }
+
+  &__title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  &__desc {
+    font-size: 1rem;
+    max-width: 500px;
+    line-height: 1.8;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+  }
+
+  &__note {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+}
