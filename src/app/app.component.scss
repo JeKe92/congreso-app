@@ -1,0 +1,17 @@
+:host { display: block; }
+
+main { min-height: calc(100vh - 64px); }
+
+.site-footer {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-dim);
+  padding-block: var(--space-lg);
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+}

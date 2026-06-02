@@ -114,7 +114,7 @@ p {
   line-height: 1.7;
 }
 
-a {
+a:not(.tron-btn) {
   color: var(--cyan);
   text-decoration: none;
   transition: color var(--transition-fast), text-shadow var(--transition-fast);

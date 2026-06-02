@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
@@ -30,13 +30,39 @@ interface Stat {
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })
-export class HomeComponent {
-  countdown = { days: 47, hours: 12, minutes: 38, seconds: 5 };
+export class HomeComponent implements OnInit, OnDestroy {
+  private readonly targetDate = new Date('2026-06-28T19:00:00-05:00');
+  private timer: ReturnType<typeof setInterval> | null = null;
+
+  countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+
+  ngOnInit() {
+    this.updateCountdown();
+    this.timer = setInterval(() => this.updateCountdown(), 1000);
+  }
+
+  ngOnDestroy() {
+    if (this.timer) clearInterval(this.timer);
+  }
+
+  private updateCountdown() {
+    const diff = this.targetDate.getTime() - Date.now();
+    if (diff <= 0) {
+      this.countdown = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+      return;
+    }
+    this.countdown = {
+      days:    Math.floor(diff / 86_400_000),
+      hours:   Math.floor((diff % 86_400_000) / 3_600_000),
+      minutes: Math.floor((diff % 3_600_000) / 60_000),
+      seconds: Math.floor((diff % 60_000) / 1000),
+    };
+  }
 
   stats: Stat[] = [
-    { value: '2,400+', label: 'Asistentes' },
-    { value: '80+',    label: 'Ponentes' },
-    { value: '12',     label: 'Tracks' },
+    { value: '100+', label: 'Asistentes' },
+    { value: '4+',    label: 'Ponentes' },
+    { value: '5+',     label: 'Actividades' },
     { value: '3',      label: 'Días' },
   ];
 
@@ -72,11 +98,9 @@ export class HomeComponent {
   ];
 
   speakers: Speaker[] = [
-    { name: 'Dr. Ana Torres',       role: 'CTO · NeuralLabs',           topic: 'Modelos fundacionales en producción', code: 'AT' },
-    { name: 'Javier Mendoza',       role: 'Security Researcher · CISA', topic: 'Zero-trust en infraestructura crítica', code: 'JM' },
-    { name: 'Priya Nair',           role: 'Principal Eng · Cloudflare',  topic: 'Edge computing a escala global',       code: 'PN' },
-    { name: 'Lucas Ferreira',       role: 'Co-founder · ChainBridge',   topic: 'Interoperabilidad cross-chain',         code: 'LF' },
-    { name: 'Dr. Isabel Ramos',     role: 'AI Ethics · UNESCO',         topic: 'IA responsable: marcos regulatorios',   code: 'IR' },
-    { name: 'Marco van den Berg',   role: 'VP Eng · HashiCorp',         topic: 'Infraestructura como código 2.0',       code: 'MB' },
+    { name: 'Ps. Dario Virviescas',       role: 'Pastor',           topic: 'La identidad en Dios: Mefiboset', code: 'DV' },
+    { name: 'Sebas Peña',       role: 'Líder de Jóvenes', topic: 'La identidad en Dios: José', code: 'SP' },
+    { name: 'Andrea Galeano',           role: 'Equipo de apoyo',  topic: 'La identidad en Dios: Débora',       code: 'AG' },
+    { name: 'Kevin Triana',       role: 'Equipo de apoyo',   topic: 'La identidad en Dios: Joven Rico',         code: 'KT' },
   ];
 }
