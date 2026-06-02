@@ -27,6 +27,35 @@
   }
 }
 
+// ── Search bar
+.at-search-bar {
+  position: relative;
+  max-width: 400px;
+  margin-bottom: var(--space-xl);
+
+  .material-icons {
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    pointer-events: none;
+  }
+
+  input {
+    padding-left: calc(var(--space-md) + 1.1rem + var(--space-sm));
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+.at-empty {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--space-xl);
+}
+
 // ── Grid
 .at-grid {
   display: grid;

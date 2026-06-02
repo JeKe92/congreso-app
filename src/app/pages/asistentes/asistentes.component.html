@@ -22,8 +22,22 @@
         <span class="text-mono text-muted" style="font-size:0.7rem;letter-spacing:0.15em">CARGANDO...</span>
       </div>
     } @else {
+      <div class="at-search-bar">
+        <span class="material-icons">search</span>
+        <input
+          type="text"
+          placeholder="BUSCAR ALIAS..."
+          [value]="search()"
+          (input)="search.set($any($event.target).value)"
+        />
+      </div>
+
+      @if (filteredAttendees().length === 0) {
+        <p class="at-empty text-mono text-muted">// SIN RESULTADOS PARA "{{ search() }}"</p>
+      }
+
       <div class="at-grid">
-        @for (attendee of attendees(); track attendee.name) {
+        @for (attendee of filteredAttendees(); track attendee.name) {
           <div class="at-card" [style.backgroundImage]="posterFor(attendee.gender)">
             <div class="at-card__reward-glow">
               <span class="text-display text-accent">RECOMPENSA:</span>
