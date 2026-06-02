@@ -13,16 +13,15 @@ export const routes: Routes = [
     data: { title: 'PROGRAMA', sub: 'Agenda del congreso' },
   },
   {
-    path: 'ponentes',
+    path: 'asistentes',
     loadComponent: () =>
       import('./pages/placeholder/placeholder.component').then(m => m.PlaceholderComponent),
-    data: { title: 'PONENTES', sub: 'Speakers confirmados' },
+    data: { title: 'ASISTENTES', sub: 'Personas que asistirán al congreso' },
   },
   {
     path: 'superpoderes',
     loadComponent: () =>
-      import('./pages/placeholder/placeholder.component').then(m => m.PlaceholderComponent),
-    data: { title: 'SUPERPODERES', sub: 'Ventajas para los asistentes' },
+      import('./pages/superpoderes/superpoderes.component').then(m => m.SuperpoderesComponent),
   },
   {
     path: 'registro',

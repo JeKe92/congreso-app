@@ -1,0 +1,96 @@
+// ── Header
+.sp-header {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-3xl);
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  &__sub {
+    font-size: 1.1rem;
+    max-width: 500px;
+  }
+}
+
+// ── Grid
+.sp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+// ── Card internals
+.sp-card {
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    height: 100%;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__code {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+  }
+
+  &__icon {
+    font-size: 1.75rem;
+    line-height: 1;
+  }
+
+  &__title {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+  }
+
+  &__desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    flex: 1;
+  }
+}
+
+// ── Skeleton loader
+.sp-loading {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-lg);
+}
+
+.sp-skeleton {
+  height: 180px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    90deg,
+    var(--bg-surface) 25%,
+    var(--bg-overlay) 50%,
+    var(--bg-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

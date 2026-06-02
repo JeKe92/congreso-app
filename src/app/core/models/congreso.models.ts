@@ -10,6 +10,18 @@ export interface Stat {
   label: string;
 }
 
+export interface Flag {
+  name: string;
+  value: string;
+}
+
+export interface SuperPower {
+  superpower: string;
+  weakness: string;
+  cost: string;
+  show: string;
+}
+
 export interface Track {
   code: string;
   title: string;
