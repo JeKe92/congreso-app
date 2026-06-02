@@ -4,7 +4,7 @@
 <section class="sp-header grid-bg">
   <div class="sp-header__glow"></div>
   <div class="container sp-header__content">
-    <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// BENEFICIOS</span>
+    <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// POTENCIADORES</span>
     <h1 class="mt-sm">SUPERPODERES</h1>
     <p class="sp-header__sub">Capacidades que podrás adquirir al asistir al congreso.</p>
   </div>
@@ -17,10 +17,9 @@
   <div class="container">
 
     @if (powers().length === 0) {
-      <div class="sp-loading">
-        @for (_ of [1,2,3,4,5,6]; track $index) {
-          <div class="sp-skeleton"></div>
-        }
+      <div class="sp-spinner-wrap">
+        <span class="sp-spinner"></span>
+        <span class="text-mono text-muted" style="font-size:0.7rem;letter-spacing:0.15em">CARGANDO...</span>
       </div>
     } @else {
       <div class="sp-grid">
@@ -30,7 +29,7 @@
               <div class="sp-card__inner">
                 <div class="sp-card__top">
                   <span class="sp-card__code text-mono text-muted">{{ codeFor(i) }}</span>
-                    <span class="sp-card__icon">{{ power.cost }}</span>
+                    <span class="material-icons sp-card__icon">{{ power.cost }}</span>
               </div>
               <h3 class="sp-card__title">{{ power.superpower }}</h3>
               @if (showWeakness()) {

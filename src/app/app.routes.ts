@@ -15,8 +15,7 @@ export const routes: Routes = [
   {
     path: 'asistentes',
     loadComponent: () =>
-      import('./pages/placeholder/placeholder.component').then(m => m.PlaceholderComponent),
-    data: { title: 'ASISTENTES', sub: 'Personas que asistirán al congreso' },
+      import('./pages/asistentes/asistentes.component').then(m => m.AsistentesComponent),
   },
   {
     path: 'superpoderes',

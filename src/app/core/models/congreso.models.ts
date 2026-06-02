@@ -15,6 +15,11 @@ export interface Flag {
   value: string;
 }
 
+export interface Asistente {
+  name: string;
+  gender: string;
+}
+
 export interface SuperPower {
   superpower: string;
   weakness: string;

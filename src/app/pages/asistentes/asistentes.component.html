@@ -1,0 +1,55 @@
+<!-- ══════════════════════════════════════════════════════════════════
+  HEADER
+══════════════════════════════════════════════════════════════════ -->
+<section class="at-header grid-bg">
+  <div class="at-header__glow"></div>
+  <div class="container at-header__content">
+    <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// REGISTRO</span>
+    <h1 class="mt-sm">ASISTENTES</h1>
+    <p class="at-header__sub">Los buscados que respondieron al llamado.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+  GRID
+══════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+
+    @if (loading()) {
+      <div class="at-spinner-wrap">
+        <span class="at-spinner"></span>
+        <span class="text-mono text-muted" style="font-size:0.7rem;letter-spacing:0.15em">CARGANDO...</span>
+      </div>
+    } @else {
+      <div class="at-grid">
+        @for (attendee of attendees(); track attendee.name) {
+          <div class="at-card" [style.backgroundImage]="posterFor(attendee.gender)">
+            <div class="at-card__reward-glow">
+              <span class="text-display text-accent">RECOMPENSA:</span>
+              <span class="text-display">1.000.000</span>
+              <span class="text-display">TOKENS</span>
+            </div>
+            <div class="at-card__description text-display">
+              <div class="at-card__label">
+                <span>ALIAS: </span>
+                <span class="at-card__name">{{ attendee.name }}</span>
+              </div>
+              <div class="at-card__label">
+                <span>CARGOS: </span>
+                <span class="at-card__name">POR DEFINIR</span>
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    }
+
+    <div class="flex-center mt-xl">
+      <app-tron-button variant="secondary" routerLink="/">
+        &#8592; VOLVER AL INICIO
+      </app-tron-button>
+    </div>
+
+  </div>
+</section>

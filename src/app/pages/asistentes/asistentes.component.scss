@@ -1,0 +1,150 @@
+@use '../../../styles/mixins' as *;
+
+// ── Header
+.at-header {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--space-3xl);
+
+  &__glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.12) 0%, transparent 65%);
+    pointer-events: none;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  &__sub {
+    font-size: 1.1rem;
+    max-width: 500px;
+  }
+}
+
+// ── Grid
+.at-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: var(--space-lg);
+
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  }
+}
+
+// ── Card
+.at-card {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-color: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-dim);
+  overflow: hidden;
+  display: flex;
+  padding: var(--space-sm);
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+
+  &:hover {
+    border-color: var(--border-mid);
+    box-shadow: var(--glow-sm);
+  }
+
+  &__description {
+    font-size: 14px;
+    font-weight: 700;
+    position: absolute;
+    width: 100%;
+    bottom: 5px;
+    padding: var(--space-sm);
+    background: linear-gradient(transparent, rgba(3, 7, 18, 0.9));
+    text-align: left;
+
+    @include tablet {
+      font-size: 12px;
+    }
+
+    @include desktop {
+      font-size: 12px;
+    }
+  }
+
+  &__reward-glow {
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+    color: var(--cyan-dim2);
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--cyan-dim2);
+
+    @include tablet {
+      font-size: 18px;
+      bottom: 80px;
+    }
+
+    @include desktop {
+      font-size: 18px;
+      bottom: 80px;
+    }
+
+    span {
+      display: block;
+      padding: 0;
+      margin: 0;
+      line-height: 1;
+    }
+  }
+
+  &__label {
+    padding: 0 15px;
+    text-align: left;
+    color: var(--cyan-dim2);
+  }
+
+  &__name {
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+}
+
+// ── Spinner
+.at-spinner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding-block: var(--space-3xl);
+}
+
+.at-spinner {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid var(--border-dim);
+  border-top-color: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan-glow);
+  animation: at-spin 0.9s linear infinite;
+}
+
+@keyframes at-spin {
+  to { transform: rotate(360deg); }
+}
