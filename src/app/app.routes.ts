@@ -19,10 +19,10 @@ export const routes: Routes = [
     data: { title: 'PONENTES', sub: 'Speakers confirmados' },
   },
   {
-    path: 'sede',
+    path: 'superpoderes',
     loadComponent: () =>
       import('./pages/placeholder/placeholder.component').then(m => m.PlaceholderComponent),
-    data: { title: 'SEDE', sub: 'Lugar del evento' },
+    data: { title: 'SUPERPODERES', sub: 'Ventajas para los asistentes' },
   },
   {
     path: 'registro',

@@ -20,7 +20,7 @@ export class NavbarComponent {
     { label: 'Inicio',     path: '/' },
     { label: 'Programa',   path: '/programa' },
     { label: 'Ponentes',   path: '/ponentes' },
-    { label: 'Sede',       path: '/sede' },
+    { label: 'Superpoderes',       path: '/superpoderes' },
     { label: 'Registro',   path: '/registro' },
   ];
 

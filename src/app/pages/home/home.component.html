@@ -64,7 +64,7 @@
 <section class="stats-bar">
   <div class="container">
     <div class="stats-bar__grid">
-      @for (stat of stats; track stat.label) {
+      @for (stat of stats(); track stat.label) {
         <div class="stats-bar__item">
           <span class="stats-bar__value">{{ stat.value }}</span>
           <span class="stats-bar__label">{{ stat.label }}</span>
@@ -122,7 +122,7 @@
     </div>
 
     <div class="speakers__grid">
-      @for (speaker of speakers; track speaker.code) {
+      @for (speaker of speakers(); track speaker.code) {
         <app-tron-card accent="cyan" padding="md" class="speaker-card">
           <div class="speaker-card__inner">
             <div class="speaker-card__avatar">
