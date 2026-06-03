@@ -18,7 +18,7 @@ export const routes: Routes = [
       import('./pages/asistentes/asistentes.component').then(m => m.AsistentesComponent),
   },
   {
-    path: 'superpoderes',
+    path: 'potenciadores',
     loadComponent: () =>
       import('./pages/superpoderes/superpoderes.component').then(m => m.SuperpoderesComponent),
   },

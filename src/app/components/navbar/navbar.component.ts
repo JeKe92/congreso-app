@@ -20,8 +20,7 @@ export class NavbarComponent {
     { label: 'Inicio',     path: '/' },
     { label: 'Programa',   path: '/programa' },
     { label: 'Asistentes',   path: '/asistentes' },
-    { label: 'Superpoderes',       path: '/superpoderes' },
-    { label: 'Registro',   path: '/registro' },
+    { label: 'Potenciadores',       path: '/potenciadores' },
   ];
 
   toggleMenu() {
