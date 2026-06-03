@@ -18,7 +18,6 @@ export class NavbarComponent {
 
   links: NavLink[] = [
     { label: 'Inicio',     path: '/' },
-    { label: 'Programa',   path: '/programa' },
     { label: 'Asistentes',   path: '/asistentes' },
     { label: 'Potenciadores',       path: '/potenciadores' },
   ];
