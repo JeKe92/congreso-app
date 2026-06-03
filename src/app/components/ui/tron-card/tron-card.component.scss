@@ -40,8 +40,9 @@
   &--pad-md { padding: var(--space-lg); }
   &--pad-lg { padding: var(--space-xl); }
 
-  // ── Hover
-  &--hoverable:hover {
+  // ── Hover / touch
+  &--hoverable:hover,
+  &--hoverable:active {
     border-color: var(--accent-color, var(--border-mid));
     box-shadow: 0 0 20px var(--accent-glow, var(--cyan-glow)), 0 8px 32px rgba(0,0,0,0.4);
     transform: translateY(-2px);

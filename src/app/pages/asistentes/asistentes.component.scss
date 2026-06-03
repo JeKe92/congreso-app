@@ -88,7 +88,8 @@
   justify-content: flex-end;
   transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
 
-  &:hover {
+  &:hover,
+  &:active {
     border-color: var(--border-mid);
     box-shadow: var(--glow-sm);
   }
