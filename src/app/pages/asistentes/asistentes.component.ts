@@ -1,6 +1,6 @@
 import { Component, inject, signal, computed } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { map, startWith } from 'rxjs';
+import { map, merge } from 'rxjs';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 import { CongresoService } from '../../core/services/congreso.service';
 
@@ -19,8 +19,11 @@ export class AsistentesComponent {
   readonly superPowers  = toSignal(this.congresoService.getSuperPowers(), { initialValue: [] });
   readonly showWeakness = toSignal(this.congresoService.getFlag('show-weakness'), { initialValue: false });
   readonly showPowers   = toSignal(this.congresoService.getFlag('show-powers'),   { initialValue: false });
-  readonly loading     = toSignal(
-    this.attendees$.pipe(map(() => false), startWith(true)),
+  readonly loading = toSignal(
+    merge(
+      this.congresoService.getRefreshTrigger().pipe(map(() => true)),
+      this.attendees$.pipe(map(() => false))
+    ),
     { initialValue: true }
   );
 
@@ -31,6 +34,10 @@ export class AsistentesComponent {
     if (!q) return this.attendees();
     return this.attendees().filter(a => a.name.toLowerCase().includes(q));
   });
+
+  refresh(): void {
+    this.congresoService.refresh();
+  }
 
   posterFor(gender: string): string {
     const file = gender.toLowerCase() === 'male' ? 'wanted-boy' : 'wanted-girl';

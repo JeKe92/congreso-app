@@ -22,14 +22,20 @@
         <span class="text-mono text-muted" style="font-size:0.7rem;letter-spacing:0.15em">CARGANDO...</span>
       </div>
     } @else {
-      <div class="at-search-bar">
-        <span class="material-icons">search</span>
-        <input
-          type="text"
-          placeholder="BUSCAR ALIAS..."
-          [value]="search()"
-          (input)="search.set($any($event.target).value)"
-        />
+      <div class="at-controls">
+        <div class="at-search-bar">
+          <span class="material-icons">search</span>
+          <input
+            type="text"
+            placeholder="BUSCAR ALIAS..."
+            [value]="search()"
+            (input)="search.set($any($event.target).value)"
+          />
+        </div>
+        <button class="refresh-btn" (click)="refresh()">
+          <span class="material-icons">refresh</span>
+          <span class="refresh-btn__text">ACTUALIZAR</span>
+        </button>
       </div>
 
       @if (filteredAttendees().length === 0) {

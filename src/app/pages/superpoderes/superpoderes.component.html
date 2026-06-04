@@ -22,23 +22,43 @@
         <span class="text-mono text-muted" style="font-size:0.7rem;letter-spacing:0.15em">CARGANDO...</span>
       </div>
     } @else {
+      <div class="sp-controls">
+        <label class="sp-toggle">
+          <input type="checkbox" [checked]="showOnlyAvailable()" (change)="showOnlyAvailable.set($any($event.target).checked)">
+          <span class="sp-toggle__track"><span class="sp-toggle__thumb"></span></span>
+          <span class="sp-toggle__label">SOLO DISPONIBLES</span>
+        </label>
+        <span class="text-mono text-muted" style="font-size:0.65rem;letter-spacing:0.1em">
+          {{ filteredPowers().length }}/{{ totalVisible() }}
+        </span>
+        <button class="refresh-btn sp-controls__refresh" (click)="refresh()" [disabled]="refreshing()">
+          <span class="material-icons" [class.spinning]="refreshing()">refresh</span>
+          <span class="refresh-btn__text">ACTUALIZAR</span>
+        </button>
+      </div>
+
       <div class="sp-grid">
-        @for (power of powers(); track power.superpower; let i = $index) {
-          @if (power.show === "TRUE") {
-            <app-tron-card [accent]="accentFor(i)" padding="lg" class="sp-card">
-              <div class="sp-card__inner">
-                <div class="sp-card__top">
-                  <span class="sp-card__code text-mono text-muted">{{ codeFor(i) }}</span>
-                    <span>{{ power.cost }}</span>
+        @for (item of filteredPowers(); track item.power.superpower) {
+          <app-tron-card [accent]="accentFor(item.i)" padding="lg" class="sp-card">
+            <div class="sp-card__inner">
+              <div class="sp-card__top">
+                <span class="sp-card__code text-mono text-muted">{{ codeFor(item.i) }}</span>
+                <div class="sp-card__top-right">
+                  @if (isAssigned(item.power.superpower)) {
+                    <span class="sp-badge">VENDIDO</span>
+                  }
+                  <span>COSTO INICIAL: {{ item.power.cost }}</span>
+                </div>
               </div>
-              <h3 class="sp-card__title">{{ power.superpower }}</h3>
+              <h3 class="sp-card__title">{{ item.power.superpower }}</h3>
               @if (showWeakness()) {
-                <p class="sp-card__desc sp-card__desc--weakness">{{ power.weakness }}</p>
+                <p class="sp-card__desc sp-card__desc--weakness">{{ item.power.weakness }}</p>
               }
             </div>
           </app-tron-card>
+        } @empty {
+          <p class="text-mono text-muted sp-empty">// TODOS LOS POTENCIADORES HAN SIDO ASIGNADOS</p>
         }
-      }
       </div>
     }
 

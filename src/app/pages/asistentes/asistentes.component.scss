@@ -27,11 +27,19 @@
   }
 }
 
+// ── Controls row (search + refresh)
+.at-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+}
+
 // ── Search bar
 .at-search-bar {
   position: relative;
+  flex: 1;
   max-width: 400px;
-  margin: 0 auto var(--space-xl);
 
   .material-icons {
     position: absolute;
