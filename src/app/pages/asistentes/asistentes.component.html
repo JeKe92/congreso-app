@@ -45,14 +45,32 @@
               <span class="text-display">TOKENS</span>
             </div>
             <div class="at-card__description text-display">
-              <div class="at-card__label">
+              <div class="at-card__label" style="font-size: 18px;">
                 <span>ALIAS: </span>
                 <span class="at-card__name">{{ attendee.name }}</span>
               </div>
-              <div class="at-card__label">
-                <span>CARGOS: </span>
-                <span class="at-card__name">POR DEFINIR</span>
-              </div>
+              @if (showPowers()) {
+                <div class="at-card__label at-card__label--powers">
+                  <span class="at-card__label-key">PODER: </span>
+                  @if (powersFor(attendee).length === 0) {
+                    <span class="at-card__name text-mono">POR DEFINIR</span>
+                  } @else {
+                    @for (power of powersFor(attendee); track power) {
+                      <span class="at-chip text-mono">{{ power }}</span>
+                    }
+                  }
+                </div>
+              }
+              @if (showWeakness() && powersFor(attendee).length > 0) {
+                <div class="at-card__label at-card__label--powers">
+                  <span class="at-card__label-key">DEBILIDADES: </span>
+                  @for (power of powersFor(attendee); track power) {
+                    @if (weaknessFor(power); as weakness) {
+                      <span class="at-chip at-chip--weakness text-mono">{{ weakness }}</span>
+                    }
+                  }
+                </div>
+              }
             </div>
           </div>
         }

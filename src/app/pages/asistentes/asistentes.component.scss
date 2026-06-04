@@ -83,7 +83,7 @@
   border: 1px solid var(--border-dim);
   overflow: hidden;
   display: flex;
-  padding: var(--space-sm);
+  padding: 0;
   flex-direction: column;
   justify-content: flex-end;
   transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
@@ -97,42 +97,26 @@
   &__description {
     font-size: 14px;
     font-weight: 700;
-    position: absolute;
-    width: 100%;
-    bottom: 5px;
-    padding: var(--space-sm);
+    padding: 12px var(--space-sm) var(--space-sm);
     background: linear-gradient(transparent, rgba(3, 7, 18, 0.9));
     text-align: left;
 
-    @include tablet {
-      font-size: 12px;
-    }
-
-    @include desktop {
-      font-size: 12px;
-    }
+    @include tablet { font-size: 12px; }
+    @include desktop { font-size: 12px; }
   }
 
   &__reward-glow {
-    position: absolute;
-    bottom: 100px;
-    width: 100%;
     font-size: 24px;
     font-weight: 700;
     text-align: center;
     color: var(--cyan-dim2);
-    padding-bottom: 10px;
+    padding: 10px var(--space-sm) 10px;
     border-bottom: 1px solid var(--cyan-dim2);
+    text-shadow: 0 0 15px rgba(0,212,255,6.5), 0 0 60px rgba(0,212,255,10);
+    animation: flicker 3s linear infinite;
 
-    @include tablet {
-      font-size: 18px;
-      bottom: 80px;
-    }
-
-    @include desktop {
-      font-size: 18px;
-      bottom: 80px;
-    }
+    @include tablet { font-size: 18px; }
+    @include desktop { font-size: 18px; }
 
     span {
       display: block;
@@ -146,11 +130,47 @@
     padding: 0 15px;
     text-align: left;
     color: var(--cyan-dim2);
+
+    &--powers {
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__label-key {
+    white-space: nowrap;
+    margin-top: 4px;
   }
 
   &__name {
+    margin-top: 4px;
     text-transform: uppercase;
     color: var(--text-primary);
+  }
+}
+
+// ── Power chip
+.at-chip {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.35);
+  border-radius: 3px;
+  padding: 2px 5px;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  &--weakness {
+    color: var(--magenta);
+    background: rgba(255, 45, 155, 0.08);
+    border-color: rgba(255, 45, 155, 0.35);
   }
 }
 

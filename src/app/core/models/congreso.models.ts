@@ -18,6 +18,9 @@ export interface Flag {
 export interface Asistente {
   name: string;
   gender: string;
+  power1?: string;
+  power2?: string;
+  power3?: string;
 }
 
 export interface SuperPower {
