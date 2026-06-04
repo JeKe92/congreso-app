@@ -7,6 +7,8 @@
   padding-block: var(--space-3xl);
   position: relative;
   overflow: hidden;
+  background-image: url('/img/banner_2.webp');
+  background-size: cover;
 
   &__glow-top {
     position: absolute;
@@ -319,6 +321,9 @@
   overflow: hidden;
   background: var(--bg-base);
   padding-block: var(--space-3xl);
+  background-image: url('/img/banner_1.webp');
+  background-size: cover;
+  background-position: center;
 
   &__glow {
     position: absolute;
