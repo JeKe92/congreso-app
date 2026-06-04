@@ -45,6 +45,7 @@
       <div class="at-grid">
         @for (attendee of filteredAttendees(); track attendee.name) {
           <div class="at-card" [style.backgroundImage]="posterFor(attendee.gender)">
+            <span class="at-card__search-icon material-icons">military_tech</span>
             <div class="at-card__reward-glow">
               <span class="text-display text-accent">RECOMPENSA:</span>
               <span class="text-display">1.000.000</span>
