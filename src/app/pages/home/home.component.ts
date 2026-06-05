@@ -5,11 +5,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 import { TronCardComponent } from '../../components/ui/tron-card/tron-card.component';
 import { CongresoService } from '../../core/services/congreso.service';
+import { RevealDirective } from '../../directives/reveal.directive';
 import { Track } from '../../core/models/congreso.models';
 
 @Component({
     selector: 'app-home',
-    imports: [CommonModule, RouterLink, TronButtonComponent, TronCardComponent],
+    imports: [CommonModule, RouterLink, TronButtonComponent, TronCardComponent, RevealDirective],
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss'
 })

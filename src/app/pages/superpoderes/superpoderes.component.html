@@ -39,7 +39,7 @@
 
       <div class="sp-grid">
         @for (item of filteredPowers(); track item.power.superpower) {
-          <app-tron-card [accent]="accentFor(item.i)" padding="lg" class="sp-card">
+          <app-tron-card appReveal [revealVariant]="item.i % 2 === 0 ? 'cyan' : 'magenta'" [revealDelay]="(item.i % 6) * 80" [accent]="accentFor(item.i)" padding="lg" class="sp-card">
             <div class="sp-card__inner">
               <div class="sp-card__top">
                 <span class="sp-card__code text-mono text-muted">{{ codeFor(item.i) }}</span>

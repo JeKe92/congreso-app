@@ -399,3 +399,25 @@ button {
 @keyframes refresh-spin {
   to { transform: rotate(360deg); }
 }
+
+// ── Scroll reveal
+@keyframes reveal-in-cyan {
+  0%   { opacity: 0; transform: translateY(16px); filter: drop-shadow(0 0 14px rgba(0,212,255,0.75)); }
+  65%  { opacity: 1; transform: translateY(0);    filter: drop-shadow(0 0 6px  rgba(0,212,255,0.2));  }
+  100% { opacity: 1; transform: translateY(0);    filter: none; }
+}
+
+@keyframes reveal-in-magenta {
+  0%   { opacity: 0; transform: translateY(16px); filter: drop-shadow(0 0 14px rgba(255,45,155,0.75)); }
+  65%  { opacity: 1; transform: translateY(0);    filter: drop-shadow(0 0 6px  rgba(255,45,155,0.2));  }
+  100% { opacity: 1; transform: translateY(0);    filter: none; }
+}
+
+.reveal {
+  opacity: 0;
+
+  &--visible {
+    &.reveal--cyan    { animation: reveal-in-cyan    0.55s ease forwards; }
+    &.reveal--magenta { animation: reveal-in-magenta 0.55s ease forwards; }
+  }
+}

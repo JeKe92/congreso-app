@@ -1,7 +1,7 @@
 <!-- ══════════════════════════════════════════════════════════════════
   HEADER
 ══════════════════════════════════════════════════════════════════ -->
-<section class="at-header grid-bg">
+<section class="at-header">
   <div class="at-header__glow"></div>
   <div class="container at-header__content">
     <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// REGISTRO</span>
@@ -44,7 +44,7 @@
 
       <div class="at-grid">
         @for (attendee of filteredAttendees(); track attendee.name) {
-          <div class="at-card" [style.backgroundImage]="posterFor(attendee.gender)">
+          <div class="at-card" appReveal [revealVariant]="$index % 2 === 0 ? 'cyan' : 'magenta'" [revealDelay]="($index % 6) * 70" [style.backgroundImage]="posterFor(attendee.gender)">
             <span class="at-card__search-icon material-icons">military_tech</span>
             <div class="at-card__reward-glow">
               <span class="text-display text-accent">RECOMPENSA:</span>

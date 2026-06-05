@@ -4,13 +4,14 @@ import { map, merge, skip } from 'rxjs';
 import { TronCardComponent } from '../../components/ui/tron-card/tron-card.component';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 import { CongresoService } from '../../core/services/congreso.service';
+import { RevealDirective } from '../../directives/reveal.directive';
 import { TronCardAccent } from '../../components/ui/tron-card/tron-card.component';
 
 const ACCENTS: TronCardAccent[] = ['cyan', 'orange', 'purple', 'green'];
 
 @Component({
   selector: 'app-superpoderes',
-  imports: [TronCardComponent, TronButtonComponent],
+  imports: [TronCardComponent, TronButtonComponent, RevealDirective],
   templateUrl: './superpoderes.component.html',
   styleUrl: './superpoderes.component.scss',
 })

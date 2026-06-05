@@ -3,10 +3,11 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { map, merge } from 'rxjs';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 import { CongresoService } from '../../core/services/congreso.service';
+import { RevealDirective } from '../../directives/reveal.directive';
 
 @Component({
   selector: 'app-asistentes',
-  imports: [TronButtonComponent],
+  imports: [TronButtonComponent, RevealDirective],
   templateUrl: './asistentes.component.html',
   styleUrl: './asistentes.component.scss',
 })

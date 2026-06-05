@@ -31,6 +31,58 @@
   }
 }
 
+// ── Animated side rails
+.pg-rails {
+  position: relative;
+  padding-inline: 14px;
+
+  @include desktop { padding-inline: 28px; }
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    border-radius: 1px;
+    pointer-events: none;
+    background-repeat: no-repeat;
+  }
+
+  // Cyan left rail
+  &::before {
+    left: 0;
+    background-image:
+      linear-gradient(to bottom, transparent, rgba(0,212,255,0.07) 15%, rgba(0,212,255,0.07) 85%, transparent),
+      linear-gradient(to bottom, transparent 38%,  rgba(255,45,155,0.95) 50%, transparent 62%);
+    background-size: 100% 100%, 100% 200%;
+    background-position: 0 0, 0 -100%;
+    animation: pg-spark-cyan 2.8s linear infinite;
+  }
+
+  // Magenta right rail
+  &::after {
+    right: 0;
+    background-image:
+      linear-gradient(to bottom, transparent, rgba(255,45,155,0.07) 15%, rgba(255,45,155,0.07) 85%, transparent),
+      linear-gradient(to bottom, transparent 38%, rgba(0,212,255,0.95) 50%, transparent 62%);
+    background-size: 100% 100%, 100% 200%;
+    background-position: 0 0, 0 -100%;
+    animation: pg-spark-magenta 2.8s linear infinite 1.4s;
+  }
+}
+
+@keyframes pg-spark-cyan {
+  from { background-position: 0 0, 0 -100%; }
+  to   { background-position: 0 0, 0 200%; }
+}
+
+@keyframes pg-spark-magenta {
+  from { background-position: 0 0, 0 -100%; }
+  to   { background-position: 0 0, 0 200%; }
+}
+
 // ── Day block
 .pg-day {
   margin-bottom: var(--space-3xl);

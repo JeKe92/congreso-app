@@ -65,7 +65,7 @@
   <div class="container">
     <div class="stats-bar__grid">
       @for (stat of stats(); track stat.label) {
-        <div class="stats-bar__item">
+        <div class="stats-bar__item" appReveal [revealVariant]="$index % 2 === 0 ? 'cyan' : 'magenta'" [revealDelay]="$index * 100">
           <span class="stats-bar__value">{{ stat.value }}</span>
           <span class="stats-bar__label">{{ stat.label }}</span>
         </div>
@@ -82,7 +82,7 @@
 ══════════════════════════════════════════════════════════════════ -->
 <section class="section tracks">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" appReveal revealVariant="cyan">
       <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// PROGRAMA</span>
       <h2 class="mt-sm">TRACKS TEMÁTICOS</h2>
       <p class="section-header__desc">Tres ejes de conocimiento que definen la experiencia.</p>
@@ -90,7 +90,7 @@
 
     <div class="tracks__grid">
       @for (track of tracks; track track.code) {
-        <app-tron-card [accent]="track.accent" padding="lg" class="track-card">
+        <app-tron-card appReveal [revealVariant]="$index % 2 === 0 ? 'cyan' : 'magenta'" [revealDelay]="$index * 120" [accent]="track.accent" padding="lg" class="track-card">
           <div class="track-card__inner">
             <div class="track-card__top">
               <span class="text-mono text-muted" style="font-size:0.7rem">{{ track.code }}</span>
@@ -115,7 +115,7 @@
 ══════════════════════════════════════════════════════════════════ -->
 <section class="section speakers">
   <div class="container">
-    <div class="section-header">
+    <div class="section-header" appReveal revealVariant="magenta">
       <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// PONENTES</span>
       <h2 class="mt-sm">SPEAKERS CONFIRMADOS</h2>
       <p class="section-header__desc">La identidad en Dios desde diferentes perspectivas.</p>
@@ -123,7 +123,7 @@
 
     <div class="speakers__grid">
       @for (speaker of speakers(); track speaker.code) {
-        <app-tron-card accent="cyan" padding="md" class="speaker-card">
+        <app-tron-card appReveal [revealVariant]="$index % 2 === 0 ? 'magenta' : 'cyan'" [revealDelay]="($index % 4) * 100" accent="cyan" padding="md" class="speaker-card">
           <div class="speaker-card__inner">
             <div class="speaker-card__avatar">
               <img [src]="'/img/' + speaker.code.toLowerCase() + '.webp'" [alt]="speaker.name" />
@@ -151,7 +151,7 @@
 ══════════════════════════════════════════════════════════════════ -->
 <section class="cta-banner">
   <div class="cta-banner__glow"></div>
-  <div class="container cta-banner__content">
+  <div class="container cta-banner__content" appReveal revealVariant="magenta">
     <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// REGISTRO ABIERTO</span>
     <h2 class="cta-banner__title mt-sm">
       ¿LISTO PARA<br>
