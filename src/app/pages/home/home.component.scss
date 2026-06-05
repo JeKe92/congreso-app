@@ -1,3 +1,5 @@
+@use '../../../styles/mixins' as *;
+
 // ── Hero
 .hero {
   min-height: 100vh;
@@ -9,6 +11,11 @@
   overflow: hidden;
   background-image: url('/img/banner_2.webp');
   background-size: cover;
+  background-position: auto;
+
+  @include desktop {
+    background-position: top;
+  }
 
   &__glow-top {
     position: absolute;

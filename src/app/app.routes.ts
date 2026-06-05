@@ -9,8 +9,7 @@ export const routes: Routes = [
   {
     path: 'programa',
     loadComponent: () =>
-      import('./pages/placeholder/placeholder.component').then(m => m.PlaceholderComponent),
-    data: { title: 'PROGRAMA', sub: 'Agenda del congreso' },
+      import('./pages/programa/programa.component').then(m => m.ProgramaComponent),
   },
   {
     path: 'asistentes',

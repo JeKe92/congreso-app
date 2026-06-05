@@ -5,6 +5,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 import { TronCardComponent } from '../../components/ui/tron-card/tron-card.component';
 import { CongresoService } from '../../core/services/congreso.service';
+import { Track } from '../../core/models/congreso.models';
 
 @Component({
     selector: 'app-home',
@@ -17,6 +18,30 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   readonly speakers = toSignal(this.congresoService.getSpeakers(), { initialValue: [] });
   readonly stats    = toSignal(this.congresoService.getStats(),    { initialValue: [] });
+
+  tracks: Track[] = [
+    {
+      code: 'T-01',
+      title: '¿Qué es la identidad?',
+      description: 'La respuesta casi siempre es: "Depende". Exploramos casos, desafíos y perspectivas.',
+      sessions: 'viernes',
+      accent: 'green',
+    },
+    {
+      code: 'T-02',
+      title: 'La identidad según Dios',
+      description: '¿Por qué me debería importar lo que dice la Biblia sobre la identidad?',
+      sessions: 'sábado',
+      accent: 'orange',
+    },
+    {
+      code: 'T-03',
+      title: 'La vida real es compleja',
+      description: '¿Cómo asumir la complejidad de la identidad sin caer en el relativismo o el reduccionismo?',
+      sessions: 'domingo',
+      accent: 'purple',
+    }
+  ];
 
   private readonly targetDate = new Date('2026-06-28T19:00:00-05:00');
   private timer: ReturnType<typeof setInterval> | null = null;

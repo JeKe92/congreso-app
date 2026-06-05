@@ -1,0 +1,65 @@
+<!-- ══════════════════════════════════════════════════════════════════
+  HEADER
+══════════════════════════════════════════════════════════════════ -->
+<section class="pg-header grid-bg">
+  <div class="pg-header__glow"></div>
+  <div class="container pg-header__content">
+    <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// AGENDA</span>
+    <h1 class="mt-sm">PROGRAMA</h1>
+    <p class="pg-header__sub">Secuencia de eventos del congreso.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+  SCHEDULE
+══════════════════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="container">
+
+    @for (day of days(); track day) {
+      <div class="pg-day">
+
+        <!-- Day header -->
+        <div class="pg-day__header">
+          <span class="material-icons pg-day__icon">calendar_today</span>
+          <h2 class="pg-day__title text-mono">{{ day.toUpperCase() }}</h2>
+        </div>
+
+        <!-- Sessions timeline -->
+        <div class="pg-timeline">
+          @for (session of sessionsByDay(day); track session.hora; let last = $last) {
+            <div class="pg-session" [class.pg-session--last]="last">
+
+              <!-- Time column -->
+              <div class="pg-session__time text-mono">{{ session.hora }}</div>
+
+              <!-- Connector -->
+              <div class="pg-session__connector">
+                <span class="pg-session__dot"></span>
+                @if (!last) { <span class="pg-session__line"></span> }
+              </div>
+
+              <!-- Content card -->
+              <div class="pg-session__card">
+                <h3 class="pg-session__tema">{{ session.tema }}</h3>
+                <div class="pg-session__ponente">
+                  <span class="material-icons">person</span>
+                  <span>{{ session.ponente }}</span>
+                </div>
+              </div>
+
+            </div>
+          }
+        </div>
+
+      </div>
+    }
+
+    <div class="flex-center mt-xl">
+      <app-tron-button variant="secondary" routerLink="/">
+        &#8592; VOLVER AL INICIO
+      </app-tron-button>
+    </div>
+
+  </div>
+</section>

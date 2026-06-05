@@ -80,12 +80,12 @@
 <!-- ══════════════════════════════════════════════════════════════════
   TRACKS
 ══════════════════════════════════════════════════════════════════ -->
-<!-- <section class="section tracks">
+<section class="section tracks">
   <div class="container">
     <div class="section-header">
       <span class="text-mono text-muted" style="font-size:0.75rem;letter-spacing:0.15em">// PROGRAMA</span>
       <h2 class="mt-sm">TRACKS TEMÁTICOS</h2>
-      <p class="section-header__desc">Cuatro ejes de conocimiento que definen la industria.</p>
+      <p class="section-header__desc">Tres ejes de conocimiento que definen la experiencia.</p>
     </div>
 
     <div class="tracks__grid">
@@ -95,7 +95,7 @@
             <div class="track-card__top">
               <span class="text-mono text-muted" style="font-size:0.7rem">{{ track.code }}</span>
               <span class="badge" [class.badge--orange]="track.accent === 'orange'">
-                {{ track.sessions }} sesiones
+                {{ track.sessions }}
               </span>
             </div>
             <h3 class="track-card__title">{{ track.title }}</h3>
@@ -108,7 +108,7 @@
       }
     </div>
   </div>
-</section> -->
+</section>
 
 <!-- ══════════════════════════════════════════════════════════════════
   SPEAKERS
@@ -157,10 +157,10 @@
       ¿LISTO PARA<br>
       <span class="text-cyan">POTENCIAR TU BÚSQUEDA?</span>
     </h2>
-    <!-- <p class="cta-banner__desc">
-      Las entradas Early Bird están disponibles por tiempo limitado.<br>
-      Asegura tu lugar antes del 31 de julio de 2026.
-    </p> -->
+    <p class="cta-banner__desc">
+      Cambia los tokens que recibirás en la apertura por potenciadores.<br>
+      En todos los eventos del congreso podrás potenciar tu experiencia.
+    </p>
     <div class="cta-banner__actions">
       <app-tron-button size="lg" routerLink="/potenciadores">
         <i class="material-icons">arrow_forward_ios</i> VER POTENCIADORES
