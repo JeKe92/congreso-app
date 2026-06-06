@@ -43,5 +43,5 @@ export interface Track {
   title: string;
   description: string;
   sessions: string;
-  accent: 'cyan' | 'orange' | 'purple' | 'green';
+  accent: 'cyan' | 'orange' | 'purple' | 'green' | 'magenta';
 }

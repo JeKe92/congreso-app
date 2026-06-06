@@ -31,6 +31,31 @@
   }
 }
 
+// ── Spinner
+.pg-spinner-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding-block: var(--space-3xl);
+}
+
+.pg-spinner {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 3px solid var(--border-dim);
+  border-top-color: var(--cyan);
+  box-shadow: 0 0 12px var(--cyan-glow);
+  animation: pg-spin 0.9s linear infinite;
+}
+
+@keyframes pg-spin {
+  to { transform: rotate(360deg); }
+}
+
 // ── Animated side rails
 .pg-rails {
   position: relative;

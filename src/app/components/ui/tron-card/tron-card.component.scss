@@ -72,6 +72,11 @@
     --accent-glow:  rgba(0,255,136,0.2);
     border-top: 1px solid rgba(0,255,136,0.2);
   }
+  &--accent-magenta {
+    --accent-color: var(--magenta);
+    --accent-glow:  var(--magenta-glow);
+    border-top: 1px solid rgba(255,45,155,0.2);
+  }
   &--accent-none {
     &::before, &::after { display: none; }
   }

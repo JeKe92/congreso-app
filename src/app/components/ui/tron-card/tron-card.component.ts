@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 
-export type TronCardAccent = 'cyan' | 'orange' | 'purple' | 'green' | 'none';
+export type TronCardAccent = 'cyan' | 'orange' | 'purple' | 'green' | 'magenta' | 'none';
 
 @Component({
     selector: 'app-tron-card',

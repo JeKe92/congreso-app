@@ -94,7 +94,7 @@
           <div class="track-card__inner">
             <div class="track-card__top">
               <span class="text-mono text-muted" style="font-size:0.7rem">{{ track.code }}</span>
-              <span class="badge" [class.badge--orange]="track.accent === 'orange'">
+              <span class="badge" [class]="'badge badge--' + track.accent">
                 {{ track.sessions }}
               </span>
             </div>

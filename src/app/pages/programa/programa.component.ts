@@ -1,5 +1,6 @@
 import { Component, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { map, merge } from 'rxjs';
 import { TronButtonComponent } from '../../components/ui/tron-button/tron-button.component';
 import { CongresoService } from '../../core/services/congreso.service';
 import { ProgramaSession } from '../../core/models/congreso.models';
@@ -12,7 +13,16 @@ import { ProgramaSession } from '../../core/models/congreso.models';
 })
 export class ProgramaComponent {
   private readonly congresoService = inject(CongresoService);
-  readonly sessions = toSignal(this.congresoService.getPrograma(), { initialValue: [] });
+  private readonly sessions$ = this.congresoService.getPrograma();
+
+  readonly sessions = toSignal(this.sessions$, { initialValue: [] });
+  readonly loading  = toSignal(
+    merge(
+      this.congresoService.getRefreshTrigger().pipe(map(() => true)),
+      this.sessions$.pipe(map(() => false))
+    ),
+    { initialValue: true }
+  );
 
   readonly days = computed(() => [
     ...new Set(this.sessions().map(s => s.dia)),

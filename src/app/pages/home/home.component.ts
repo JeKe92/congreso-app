@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     {
       code: 'T-01',
       title: '¿Qué es la identidad?',
-      description: 'La respuesta casi siempre es: "Depende". Exploramos casos, desafíos y perspectivas.',
+      description: 'La respuesta usualmente es: "Depende". Exploramos casos, desafíos y perspectivas.',
       sessions: 'viernes',
       accent: 'green',
     },
@@ -40,7 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy {
       title: 'La vida real es compleja',
       description: '¿Cómo asumir la complejidad de la identidad sin caer en el relativismo o el reduccionismo?',
       sessions: 'domingo',
-      accent: 'purple',
+      accent: 'magenta',
     }
   ];
 
