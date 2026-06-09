@@ -76,6 +76,36 @@
     line-height: 1.75;
   }
 
+  &__verse {
+    display: block;
+    padding-block: var(--space-md);
+    font-family: var(--font-mono);
+    font-size: clamp(0.9rem, 2vw, 1.15rem);
+    font-weight: 700;
+    letter-spacing: 0.45em;
+    text-transform: uppercase;
+    color: var(--cyan);
+    text-shadow:
+      0 0 10px var(--cyan-glow),
+      0 0 28px rgba(0,212,255,0.2);
+    animation: animate-pulse-glow 3s ease-in-out infinite;
+
+    &::before,
+    &::after {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(
+        to right,
+        var(--cyan),
+        rgba(0,212,255,0.3) 55%,
+        transparent
+      );
+      opacity: 0.55;
+      margin-block: var(--space-sm);
+    }
+  }
+
   &__actions {
     display: flex;
     gap: var(--space-md);
